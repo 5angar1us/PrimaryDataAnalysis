@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BCA6AB20-FC75-45B5-9423-F8415754F0C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAnalyzers</RootNamespace>
+    <AssemblyName>DataAnalyzers</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalyzersController.cs" />
+    <Compile Include="Analyzers\AsymmetryAnalyzer.cs" />
+    <Compile Include="Analyzers\BasicVariationAnalyzer.cs" />
+    <Compile Include="Analyzers\Discrete\DiscreteDistributionCenterAnalyzer.cs" />
+    <Compile Include="Analyzers\Discrete\DiscreteFrequencyAnalyzer.cs" />
+    <Compile Include="Analyzers\Discrete\DiscreteVariationalAnalyzer.cs" />
+    <Compile Include="Analyzers\Discrete\DiscreteVariationRangeAnalyzer.cs" />
+    <Compile Include="Analyzers\ExcessAnalyzer.cs" />
+    <Compile Include="Analyzers\Interfaces\IDistributionCenterAnalyzer.cs" />
+    <Compile Include="Analyzers\Interfaces\IFrequencyAnalyzer.cs" />
+    <Compile Include="Analyzers\Interfaces\IVariationRangeAnalyzer.cs" />
+    <Compile Include="Analyzers\Interval\IntervalDistributionCenterAnalyzer.cs" />
+    <Compile Include="Analyzers\Interval\IntervalFrequencyAnalyzer.cs" />
+    <Compile Include="Analyzers\Interval\IntervalVariationalAnalyzer.cs" />
+    <Compile Include="Analyzers\Interval\IntervalVariationRangeAnalyzer.cs" />
+    <Compile Include="Analyzers\RelativeIndicatorsAnalyzers.cs" />
+    <Compile Include="Analyzers\Abstract\VariationalAnalyzer.cs" />
+    <Compile Include="Data\AsymmetryData.cs" />
+    <Compile Include="Data\DistributionCenterData.cs" />
+    <Compile Include="Data\Enums\CalculationMode.cs" />
+    <Compile Include="Data\Enums\Materiality.cs" />
+    <Compile Include="Data\ExcessData.cs" />
+    <Compile Include="Data\FrequencyRange.cs" />
+    <Compile Include="Data\IntervalFrequencyRange.cs" />
+    <Compile Include="Data\Intervals.cs" />
+    <Compile Include="Data\PrimaryAnalysisResults.cs" />
+    <Compile Include="Data\RelativeIndicators.cs" />
+    <Compile Include="Data\VariationsIndicators.cs" />
+    <Compile Include="Data\BasicVariationSize.cs" />
+    <Compile Include="Factories\DiscreteCalculationFactory.cs" />
+    <Compile Include="Factories\ICalculationFactory.cs" />
+    <Compile Include="Factories\IntervalCalculationFactory.cs" />
+    <Compile Include="Helpers\DoubleExtensions.cs" />
+    <Compile Include="Helpers\GenericMath.cs" />
+    <Compile Include="Helpers\StatistiCalcalculations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
